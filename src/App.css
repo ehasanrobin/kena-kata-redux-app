@@ -1,13 +1,22 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
 body {
   font-family: "Geologica", sans-serif;
   font-optical-sizing: auto;
 }
+
 /* mobile menu css  */
 #menuToggle {
   display: block;
@@ -137,3 +146,63 @@ body {
   transform: none;
 }
 /* mobile menu css  */
+
+/* Slider css  */
+.slider-box {
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: auto;
+  width: 90%;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* End position */
+    opacity: 1;
+  }
+}
+@keyframes fadeAndScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9, 0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+.swiper-slide-active .slider-box h1 {
+  animation-name: slideIn;
+  animation-duration: 0.6s;
+  animation-delay: 1;
+}
+.swiper-slide-active .slider-box span {
+  animation-name: slideIn;
+  animation-duration: 0.6s;
+  animation-delay: 1;
+}
+.swiper-slide-active .slider-box button {
+  animation-name: slideIn;
+  animation-duration: 0.6s;
+}
+.swiper-slide-active .slider-box img {
+  animation-name: fadeAndScale;
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.71, 0.55, 0.62, 1.57);
+}
+button.tab.font-bold.text-gray-500.tab-active {
+  border-radius: 52px;
+  background: #000;
+  color: white !important;
+}
+button.tab.font-bold.text-gray-500.tab-active:hover {
+  border-radius: 52px;
+  background: #000;
+  color: white !important;
+}
+/* Slider css  */
